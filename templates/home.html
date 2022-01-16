@@ -1,0 +1,620 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block main %}
+    <!-- Landing Area start -->
+    <div id='Landing' class="return">
+      <video src= "https://firebasestorage.googleapis.com/v0/b/netflix-86f08.appspot.com/o/Cover%2FGUARDIAN%20-%20THE%20LONELY%20AND%20GREAT%20GOD%20(GOBLIN)%20-%20OFFICIAL%20TRAILER%20_%20Gong%20Yoo%2C%20Lee%20Dong%20Wook%2C%20Kim%20Go%20Eun.mp4?alt=media&token=fbed9bbb-1645-44fc-884e-32b4f805732b"
+      muted class="background"
+      poster= "https://firebasestorage.googleapis.com/v0/b/netflix-86f08.appspot.com/o/Cover%2Foriginal.jpg?alt=media&token=1322743f-8134-4f2e-8af5-228529ff5a51"
+      alt='' ></video>
+      <div class="divall container-fluid">
+        <div class="row">
+          <div class="col1 col-5">
+            <img src="https://occ-0-2705-2706.1.nflxso.net/dnm/api/v6/tx1O544a9T7n8Z_G12qaboulQQE/AAAABUbBjRwVQZd8S5iEggUToKEM5wWK8GP6X8P7vz3efLTJZfkMCQZ9s8VXBUc3hTPQR-VnOl3vqV4z_TAConDHA1I-MeZzUKwgwlk.webp?r=6b4" alt="" 
+            class="movielogo"></img>
+
+            <h3>Watch Now</h3>
+            <p>
+            In his quest for a bride to break his immortal curse, Dokkaebi, a 939-year-old guardian of souls, meets a grim reaper and a sprightly student with a tragic past.
+            </p>
+            <div class="buttons">
+              <a class="btn btn-light mx-3" onClick=''>
+              <i class="fas fa-band-aid"></i>
+                <span>Play</span>
+              </a>
+
+              <a class="btn btn-danger" >
+              <i class="fas fa-band-aid"></i>
+                <span>More Info</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="col2 col-5">
+            <i>M</i>
+            <div class="age">+15</div>
+          </div>
+
+        </div> 
+      </div>  
+      </div>  
+    <!-- Landing Area end -->
+<!-- Swiper -->
+<div class="container-fluid">
+  <h4>Trending Shows</h4>
+</div>
+
+<!-- trending -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['data'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form>
+                  <input id='mylist' type="text" value="{{i}}" hidden>
+                  <a class="btn btn-danger">MyList</a>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<div class="container-fluid">
+  <h4>Trending Movies</h4>
+</div>
+
+<!-- movies -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['movies'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form>
+                  <input id='mylist' type="text" value="{{i}}" hidden>
+                  <a class="btn btn-danger">MyList</a>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<div class="container-fluid">
+  <h4>Trending Serieses</h4>
+</div>
+
+<!-- movies -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['shows'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form action="/" method="post">
+                  <input id='mylist' type="text" name="mylist" value="{{i['id']}}" hidden>
+                  <!-- <a class="btn btn-danger">MyList</a> -->
+                  <button class="btn btn-danger m-2" type="submit" >MyList</button>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<div class="container-fluid">
+  <h4>Action</h4>
+</div>
+
+<!-- actiion -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['action'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form>
+                  <input id='mylist' type="text" value="{{i}}" hidden>
+                  <a class="btn btn-danger">MyList</a>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<div class="container-fluid">
+  <h4>Drama</h4>
+</div>
+
+<!-- drama -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['drama'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form>
+                  <input id='mylist' type="text" value="{{i}}" hidden>
+                  <a class="btn btn-danger">MyList</a>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+
+<div class="container-fluid">
+  <h4>Comedy</h4>
+</div>
+
+<!-- comedy -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['comedy'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form>
+                  <input id='mylist' type="text" value="{{i}}" hidden>
+                  <a class="btn btn-danger">MyList</a>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<div class="container-fluid">
+  <h4>Fantasy</h4>
+</div>
+
+<!-- fantasy -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['fantasy'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form>
+                  <input id='mylist' type="text" value="{{i}}" hidden>
+                  <a class="btn btn-danger">MyList</a>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<div class="container-fluid">
+  <h4>Scifi</h4>
+</div>
+
+<!-- scifi -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for i in data['scifi'] %}
+    <div class="swiper-slide">
+
+      <div id="CardPhoto" class="card">
+        <video
+          src="{{i['video_file']}}"
+          class="card-img-top"
+          muted
+          alt=""
+          poster="{{i['image_file']}}"
+        ></video>
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col1 col-6">
+              <a onClick="" href="" style="text-decoration: none;">
+                <!-- <i class="fa-regular fa-circle-play"></i> -->
+                <form action="/preview" method="post">
+                  <input id='play' type="text" name="play" value="{{i.id}}" hidden>
+                  <button class="btn btn-danger m-2" type="submit" >
+                    Play
+                  </button>
+                </form>
+              </a>
+            </div>
+
+            <div class="col2 col-6">
+              <a onClick="" href="#">
+                <form>
+                  <input id='mylist' type="text" value="{{i}}" hidden>
+                  <a class="btn btn-danger">MyList</a>
+                </form>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="line1">
+            <p class="match">Rate 8.95/10</p>
+            <p class="age">16+</p>
+            <p class="season_num_p">Movie</p>
+            <p class="quality">HD</p>
+          </div>
+
+          <div class="line2 w-100">
+            <p>{{ i['cat1'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat2'] }}</p>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <p>{{ i['cat3'] }}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+
+{% endblock %}

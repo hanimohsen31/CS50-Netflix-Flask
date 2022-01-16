@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link href='/static/css/all.css' rel="stylesheet" />
+
+    <link href='/static/styles.css' rel="stylesheet"/>
+    
+  </head>
+  <body>
+    <!-- NavBar start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Netflix</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/movies">Movies</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/tvshows">Tv Shows</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/mylist">My List</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/terms">Terms</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+
+          </ul>
+
+          <!-- <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form> -->
+          
+        </div>
+      </div>
+    </nav>
+    <!-- NavBar end -->
+
+    {% block main %}{% endblock %}
+
+    <!-- Footer start -->
+    <footer id="FooterInnerBlack" class="myfooter">
+      <div class="container-fluid">
+        <div class="container ">
+          <div class="row row1">
+            <div class="col-12 icos">
+              <!-- <FontAwesomeIcon icon="{faYoutube}" class="youtube" />
+              <FontAwesomeIcon icon="{faFacebook}" class="facebook" /> -->
+            </div>
+          </div>
+
+          <div class="row row2">
+            <div class="x col-sm-12 col-md-6 col-lg-4">
+              <ul class="mylist">
+                <li>
+                  <a to="/">Audio and Subtitle</a>
+                </li>
+                <li>
+                  <a to="/">Media Center</a>
+                </li>
+                <li>
+                  <a to="/">Privacy</a>
+                </li>
+                <li>
+                  <a to="/">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="x col-sm-12 col-md-6 col-lg-4">
+              <ul class="mylist">
+                <li>
+                  <a to="/">Help Center</a>
+                </li>
+                <li>
+                  <a to="/">Jobs</a>
+                </li>
+                <li>
+                  <a to="/"> Cookies and Preferences </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="x col-sm-12 col-md-6 col-lg-4">
+              <ul class="mylist">
+                <li>
+                  <a to="/">Gift Cards</a>
+                </li>
+                <li>
+                  <a to="/">Terms of Use</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row stamp">
+            <div class="col-sm-12">
+              <span> <b>&copy;</b> 1997-2021 Netflix, Inc. </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Footer end -->
+    <!-- scripts end -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="/static/swiper-bundle.min.js"></script>
+<script src="/static/all.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    breakpoints:{
+          320: {
+            width: 320,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          768: {
+            width: 768,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1200: {
+            width: 1200,
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
+        },
+    class:"mySwiper",
+    // slidesPerView: 5,
+    spaceBetween: 5,
+    // slidesPerGroup: 3,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+  </body>
+</html>
