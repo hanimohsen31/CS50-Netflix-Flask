@@ -306,9 +306,10 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         password_confirm =request.form.get("confirmation")
+        email =request.form.get("email")
 
         if password != password_confirm :
-            return apology("must provide username", 400)
+            return apology("wrong confirmation", 400)
 
         password = generate_password_hash(request.form.get("password"))
         # print(password)
@@ -323,14 +324,24 @@ def register():
         elif not request.form.get("password"):
             return apology("must provide password", 400)
 
+        # Ensure password was submitted
+        elif not request.form.get("email"):
+            return apology("must provide email", 400)
+
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows_email = db.execute("SELECT * FROM users WHERE email = ?", request.form.get("email"))
 
         if len(rows) >= 1 :
             print('error line 151 checkpass')
             return apology("invalid username and/or password", 400)
 
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
+        if len(rows_email) >= 1 :
+            print('error line 151 checkpass')
+            return apology("invalid email and/or password", 400)
+
+
+        db.execute("INSERT INTO users (username,email, hash) VALUES(?, ?, ?)", username,email, password)
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         # Remember which user has logged in
         try:
