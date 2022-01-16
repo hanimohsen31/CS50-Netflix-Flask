@@ -32,21 +32,21 @@ https://youtu.be/YBCUt2iTlyI
 ## Photos of site: 
 
 ### 1. Home Page
-![home page Image](https://github.com/hanimohsen31/CS50-Netflix-Flask/static/readme/home.jpg)
+![home page Image](/static/readme/home.jpg)
 
 ### 2. Tv Shows
-![shows page Image](https://github.com/hanimohsen31/CS50-Netflix-Flask/static/readme/shows.jpg)
+![shows page Image](/static/readme/shows.jpg)
 
 ### 3. My List
-![mylist page Image](https://github.com/hanimohsen31/CS50-Netflix-Flask/static/readme/mylist.jpg)
+![mylist page Image](/static/readme/mylist.jpg)
 
 ### 4. About
 #### This Page for the course's Polcies
-![about page Image](https://github.com/hanimohsen31/CS50-Netflix-Flask/static/readme/about.jpg)
+![about page Image](/static/readme/about.jpg)
 
 ### 5. Log In
-![Loging page Image](https://github.com/hanimohsen31/CS50-Netflix-Flask/static/readme/login.jpg)
+![Loging page Image](/static/readme/login.jpg)
 
 ### 6. Register
-![register page Image](https://github.com/hanimohsen31/CS50-Netflix-Flask/static/readme/register.jpg)
+![register page Image](/static/readme/register.jpg)
 
