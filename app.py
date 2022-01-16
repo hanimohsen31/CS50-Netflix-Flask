@@ -297,30 +297,38 @@ def login():
 
 # ----------------------------------------------- register ----------------------------------------------- #
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
     if request.method == "POST":
         """Register user"""
         username = request.form.get("username")
+        password = request.form.get("password")
+        password_confirm =request.form.get("confirmation")
+
+        if password != password_confirm :
+            return apology("must provide username", 400)
+
         password = generate_password_hash(request.form.get("password"))
-        print(password)
+        # print(password)
         session.clear()
+
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         if len(rows) >= 1 :
             print('error line 151 checkpass')
-            return apology("invalid username and/or password", 403)
+            return apology("invalid username and/or password", 400)
 
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
@@ -333,7 +341,7 @@ def register():
         return redirect ('/')
 
     if request.method == "GET":
-       return render_template("register.html")
+        return render_template("register.html")
 
 # ----------------------------------------------- logout ----------------------------------------------- #
 
