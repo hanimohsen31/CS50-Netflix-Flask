@@ -91,9 +91,10 @@ def home():
             db.execute("INSERT INTO mylist (movies_id, user_id) VALUES(?, ?)", input, currntUser)
         else:
             pass
+        return redirect('/mylist')
 
     if request.method == "GET":
-        print(session["user_id"])
+        # print(session["user_id"])
         # currntUser = session["user_id"]
         data = globalQuery[0:10]
         movies = []
@@ -189,15 +190,28 @@ def tvshows():
 @login_required
 def mylist():
     if request.method == "POST":
-        pass
+        currntUser = session["user_id"]
+        input = request.form.get("mylist")
+        query = db.execute("Delete from mylist where movies_id = ? and user_id = ?",input,currntUser)
+        return redirect('/mylist')
 
     if request.method == "GET":
         currntUser = session["user_id"]
-        data = db.execute("Select * from mylist where user_id = ? ",currntUser)
+        print(currntUser)
+        list=[]
+        query = db.execute("Select * from mylist where user_id = ? ",currntUser)
+        for i in query :
+            list.append(i['movies_id'])
+        print(list)
+        data = db.execute("Select * from movies where id in (?) ",list)
+        print(data)
+
+        # for i in globalQuery:
 
         context = {
             'data':data,
         }
+
         return render_template("mylist.html", data=context )
 # ----------------------------------------------- terms ----------------------------------------------- #
 @app.route("/terms", methods=["GET", "POST"])
