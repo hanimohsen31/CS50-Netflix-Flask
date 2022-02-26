@@ -26,8 +26,7 @@ I have simulated the famous site for showing movies and series, which is Netflix
 
 # Netflix Project 
 ## App Deployment
-https://netflix-flask.herokuapp.com/login
-
+https://netflix-flask.herokuapp.com
 ## Previewing site tour on youtube
 #### Video Demo:
 https://youtu.be/YBCUt2iTlyI
